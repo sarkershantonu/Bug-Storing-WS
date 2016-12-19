@@ -35,4 +35,20 @@ See , resources/config folder for configuration.
 see resources/data folder
  
 Initially only 2 record is included. 
- 
+
+# Rest client Sample data 
+ [
+   {
+     "id": 1,
+     "title": "this is a bug",
+     "summary": "Sample Bug" ,
+     "exceptions": "Exception Is not present",
+     "comments": "Comments ",
+     "foundDateTime":"1st december",
+     "tags": "New, On production",
+     "priority": "High",
+     "servility": "Blocker",
+     "attachmentPath": "http://",
+     "description": "Sampel Data "
+   }
+ ]
