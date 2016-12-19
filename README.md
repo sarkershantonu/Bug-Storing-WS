@@ -33,8 +33,7 @@ See , resources/config folder for configuration.
 
 # HSQL DB 
 see resources/data folder
- 
-Initially only 2 record is included. 
+
 
 # Rest client Sample data 
  [
