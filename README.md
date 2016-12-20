@@ -26,7 +26,7 @@ Paths : (TBD)
 
 # Authentication 
 Basic Auth with spring boot module . See properties 
-
+(no auth for first release)
 
 # Properties 
 See , resources/config folder for configuration. 
