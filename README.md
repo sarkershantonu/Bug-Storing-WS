@@ -2,7 +2,8 @@
 TBD 
 
 # run from IDE or with code
-mvn clean 
+mvn clean release 
+
 mvn spring-boot:run
 
 # Deploy and run from jad
