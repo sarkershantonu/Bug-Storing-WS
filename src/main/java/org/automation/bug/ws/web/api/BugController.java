@@ -45,7 +45,7 @@ public class BugController extends BaseController {
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Bug> findone(@PathVariable("id") Long id){
         if(id==null){
-            return new ResponseEntity<Bug>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Bug>(HttpStatus.BAD_REQUEST);
         }
         else{
             Bug found = bugService.findOne(id);
@@ -62,8 +62,8 @@ public class BugController extends BaseController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Bug> update(@RequestBody Bug b, @PathVariable("id") Long id){
-        if(id==null){
-            return new ResponseEntity<Bug>(HttpStatus.NOT_FOUND);
+        if(id==null ){
+            return new ResponseEntity<Bug>(HttpStatus.BAD_REQUEST);
         }
         if (id!=b.getId()){
             return new ResponseEntity<Bug>(HttpStatus.BAD_REQUEST);
@@ -77,7 +77,20 @@ public class BugController extends BaseController {
         {
             return new ResponseEntity<Bug>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
 
+    @RequestMapping(value = "/table/bugs/{id}",
+            method = RequestMethod.DELETE)
+    public ResponseEntity<Bug> del(@PathVariable("id") Long id){
 
+        if(id==null ){
+            return new ResponseEntity<Bug>(HttpStatus.BAD_REQUEST);
+        }
+        Bug found  = bugService.findOne(id);
+        if(found==null){
+            return new ResponseEntity<Bug>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        bugService.delete(id);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
