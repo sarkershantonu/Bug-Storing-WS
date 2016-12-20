@@ -57,6 +57,27 @@ public class BugController extends BaseController {
              }
         }
     }
+    @RequestMapping(value = "/table/bugs/{id}",
+            method = RequestMethod.PUT,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Bug> update(@RequestBody Bug b, @PathVariable("id") Long id){
+        if(id==null){
+            return new ResponseEntity<Bug>(HttpStatus.NOT_FOUND);
+        }
+        if (id!=b.getId()){
+            return new ResponseEntity<Bug>(HttpStatus.BAD_REQUEST);
+        }
+        Bug found = bugService.findOne(b.getId());
+        if(found!=null){
+
+            return new ResponseEntity<Bug>(bugService.update(b),HttpStatus.ACCEPTED);
+        }
+        else
+        {
+            return new ResponseEntity<Bug>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
 
+    }
 }
