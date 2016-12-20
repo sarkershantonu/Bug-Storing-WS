@@ -17,16 +17,16 @@ java -jar <generated jar>
 Host : localhost
 Port :9100
 Paths : (TBD)
-1. GET : /table/bugs
-2. POST : /table/bugs
-3. GET : /table/bugs/{id}
-4. POST : /table/bugs/{id}
-5. PUT : /table/bugs/{id}
-6. DELETE : /table/bugs/{id}
-7. POST : /table/bugs/{id}/send
+1.To see all bugs : GET : /table/bugs
+2.To save a bug: POST : /table/bugs
+3.To see a bug : GET : /table/bugs/{id}
+4.To Update a Bug: PUT : /table/bugs/{id}
+5.To Delete a Bug : DELETE : /table/bugs/{id}
+
 
 # Authentication 
 Basic Auth with spring boot module . See properties 
+
 
 # Properties 
 See , resources/config folder for configuration. 
