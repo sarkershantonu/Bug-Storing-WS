@@ -8,6 +8,8 @@ import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.function.BiFunction;
+
 /**
  * Created by shantonu on 12/18/16.
  */
@@ -24,4 +26,9 @@ public class App {
     public CacheManager cacheManager(){
         return new GuavaCacheManager("bugs");
     }
+
+    public <K,V> void Compute(K key, BiFunction<?super K, ? super V, ? extends V> remappingFunction){
+
+    }
+
 }
