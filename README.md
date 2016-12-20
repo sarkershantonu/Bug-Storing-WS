@@ -35,7 +35,8 @@ See , resources/config folder for configuration.
 see resources/data folder
 
 
-# Rest client Sample data 
+# Sample data : 
+
  [
    {
      "id": 1,
@@ -51,3 +52,10 @@ see resources/data folder
      "description": "Sampel Data "
    }
  ]
+ 
+# Test tools 
+ postman
+ Jmeter
+ soapui etc
+ IDE Plugins
+ etc
