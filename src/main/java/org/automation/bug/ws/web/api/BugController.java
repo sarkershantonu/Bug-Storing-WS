@@ -26,7 +26,7 @@ public class BugController extends BaseController {
     @RequestMapping(value = "/table/bugs",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Collection<Bug>> getAllBugs(){
+    public ResponseEntity<Collection<Bug>> findall(){
         return new ResponseEntity<Collection<Bug>>(bugService.findAll(), HttpStatus.OK);
     }
 
@@ -43,7 +43,7 @@ public class BugController extends BaseController {
     @RequestMapping(value = "/table/bugs/{id}",
     method = RequestMethod.GET,
     produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Bug> findone(@PathVariable("id") Long id){
+    public ResponseEntity<Bug> find(@PathVariable("id") Long id){
         if(id==null){
             return new ResponseEntity<Bug>(HttpStatus.BAD_REQUEST);
         }

@@ -37,7 +37,6 @@ see resources/data folder
 
 # Sample data : 
 
- [
    {
      "id": 1,
      "title": "this is a bug",
@@ -51,7 +50,7 @@ see resources/data folder
      "attachmentPath": "http://",
      "description": "Sampel Data "
    }
- ]
+ 
  
 # Test tools 
  postman
