@@ -7,7 +7,7 @@ mvn clean release
 
 mvn spring-boot:run
 
-# Deploy and run from jad
+# Deploy and run from JAR
 mvn clean package
 
 => this will generate a Jar file in target folder. The name of the jar file will be "spring-boot-webservice-1.0.SNAPSHOT.jar" 
