@@ -70,3 +70,8 @@ see resources/data folder
 5. Rest Assured 
  
  etc
+ 
+# Version 
+ 1.0 will be no auth 
+ 
+ 2.0 will be basic auth
