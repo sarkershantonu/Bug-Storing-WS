@@ -1,5 +1,6 @@
 package org.automation.bug.ws;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/table/bugs/**").authenticated();
+        http.authorizeRequests().
+                antMatchers("/table/bugs/**").permitAll().
+                anyRequest().authenticated();
         http.csrf().disable();
     }
 
