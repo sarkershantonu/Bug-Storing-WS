@@ -21,12 +21,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     private String pass;
 
     @Override
-    public void configure(HttpSecurity http){
-
+    public void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/table/bugs/**").authenticated();
+        http.csrf().disable();
     }
 
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("").password("").roles("");
+        auth.inMemoryAuthentication().withUser(user).password(pass).roles("admin");
     }
 
 }
