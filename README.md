@@ -22,15 +22,11 @@ Port :9100
 
 Paths : 
 
-1.To see all bugs : GET : /table/bugs
-
-2.To save a bug: POST : /table/bugs
-
-3.To see a bug : GET : /table/bugs/{id}
-
-4.To Update a Bug: PUT : /table/bugs/{id}
-
-5.To Delete a Bug : DELETE : /table/bugs/{id}
+1. To see all bugs : GET : /table/bugs
+2. To save a bug: POST : /table/bugs
+3. To see a bug : GET : /table/bugs/{id}
+4. To Update a Bug: PUT : /table/bugs/{id}
+5. To Delete a Bug : DELETE : /table/bugs/{id}
 
 
 # Authentication 
