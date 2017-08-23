@@ -2,6 +2,7 @@
 This is a small webservice for storing bug in a table. 
 The main idea is to store bug in HSQLDB and use this webservice to practice REST webservice testing using tools/framework.  
 
+
 # run from IDE or with code
 mvn clean release 
 
