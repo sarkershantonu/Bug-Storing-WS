@@ -68,4 +68,4 @@ see resources/data folder
  
  etc
  
- 
+ Update  : jmeter tests are in a folder
