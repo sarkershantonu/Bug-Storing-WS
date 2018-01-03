@@ -21,7 +21,7 @@ Host : localhost
 
 Port :9100
 
-Paths : 
+URL/Paths : 
 
 1. To see all bugs : GET : /table/bugs
 2. To save a bug: POST : /table/bugs
