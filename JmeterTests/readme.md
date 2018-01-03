@@ -31,7 +31,7 @@
  
  
  # Test Results 
- ![Screenshot](.\Selection_003.png)
+ ![Screenshot](..\Selection_003.png)
  
  # Analysis 
  - Total 8000 Request/s , serving peak after 5 min (300s rampup)
