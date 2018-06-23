@@ -33,7 +33,7 @@ public class BugServiceBean implements BugService{
     @Override
     @Cacheable(value = "bugs", key = "#id")
     public Bug findOne(Long id) {
-        return bugs.findOne(id);
+        return bugs.getOne(id);
     }
 
     @Override
@@ -59,9 +59,16 @@ public class BugServiceBean implements BugService{
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     @CacheEvict(value = "bugs", key = "#id")
     public void delete(Long id) {
-        bugs.delete(id);
+
+        bugs.deleteById(id);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    @CacheEvict(value = "bugs", key = "#g.id")
+    public void delete(Bug aBug) {
+
+        bugs.delete(aBug);
+    }
     @Override
     @CacheEvict(value = "bugs", allEntries = true)
     public void evictCache() {
