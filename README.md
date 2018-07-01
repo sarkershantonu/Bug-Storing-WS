@@ -2,6 +2,7 @@
 This is a small webservice for storing bug in a table. 
 The main idea is to store bug in HSQLDB and use this webservice to practice REST webservice testing using tools/framework.  
 
+
 # run from IDE or with code
 mvn clean release 
 
@@ -20,17 +21,13 @@ Host : localhost
 
 Port :9100
 
-Paths : 
+URL/Paths : 
 
-1.To see all bugs : GET : /table/bugs
-
-2.To save a bug: POST : /table/bugs
-
-3.To see a bug : GET : /table/bugs/{id}
-
-4.To Update a Bug: PUT : /table/bugs/{id}
-
-5.To Delete a Bug : DELETE : /table/bugs/{id}
+1. To see all bugs : GET : /table/bugs
+2. To save a bug: POST : /table/bugs
+3. To see a bug : GET : /table/bugs/{id}
+4. To Update a Bug: PUT : /table/bugs/{id}
+5. To Delete a Bug : DELETE : /table/bugs/{id}
 
 
 # Authentication 
@@ -71,7 +68,16 @@ see resources/data folder
  
  etc
  
+
 # Version 
  1.0 will be no auth 
  
  2.0 will be basic auth
+ 
+ 2.0 with basic auth & unit tests
+
+ # Update  : jmeter tests are in a folder
+ 
+ # todo
+ - Integration with OAuth 2.0 (google host)
+

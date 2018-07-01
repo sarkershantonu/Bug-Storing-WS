@@ -6,8 +6,9 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
+105501
 import java.util.function.BiFunction;
 
 /**
@@ -24,6 +25,7 @@ public class App {
 
     @Bean
     public CacheManager cacheManager(){
+
         return new GuavaCacheManager("bugs");
     }
 
