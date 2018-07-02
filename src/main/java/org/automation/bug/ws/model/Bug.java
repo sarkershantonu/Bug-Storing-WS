@@ -113,4 +113,56 @@ public class Bug {
     private String tags;
     private String priority;
     private String servility;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bug)) return false;
+
+        Bug bug = (Bug) o;
+
+        if (!getId().equals(bug.getId())) return false;
+        if (!getTitle().equals(bug.getTitle())) return false;
+        if (!getSummary().equals(bug.getSummary())) return false;
+        if (!getDescription().equals(bug.getDescription())) return false;
+        if (!getAttachmentPath().equals(bug.getAttachmentPath())) return false;
+        if (!getExceptions().equals(bug.getExceptions())) return false;
+        if (!getComments().equals(bug.getComments())) return false;
+        if (!getFoundDateTime().equals(bug.getFoundDateTime())) return false;
+        if (!getTags().equals(bug.getTags())) return false;
+        if (!getPriority().equals(bug.getPriority())) return false;
+        return getServility().equals(bug.getServility());
+    }
+
+    public boolean equalsByData(Object o) {
+        Bug bug = (Bug) o;
+
+        if (!getId().equals(bug.getId())) return false;
+        if (!getTitle().equals(bug.getTitle())) return false;
+        if (!getSummary().equals(bug.getSummary())) return false;
+        if (!getDescription().equals(bug.getDescription())) return false;
+        if (!getAttachmentPath().equals(bug.getAttachmentPath())) return false;
+        if (!getExceptions().equals(bug.getExceptions())) return false;
+        if (!getComments().equals(bug.getComments())) return false;
+        if (!getFoundDateTime().equals(bug.getFoundDateTime())) return false;
+        if (!getTags().equals(bug.getTags())) return false;
+        if (!getPriority().equals(bug.getPriority())) return false;
+        return getServility().equals(bug.getServility());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId().hashCode();
+        result = 31 * result + getTitle().hashCode();
+        result = 31 * result + getSummary().hashCode();
+        result = 31 * result + getDescription().hashCode();
+        result = 31 * result + getAttachmentPath().hashCode();
+        result = 31 * result + getExceptions().hashCode();
+        result = 31 * result + getComments().hashCode();
+        result = 31 * result + getFoundDateTime().hashCode();
+        result = 31 * result + getTags().hashCode();
+        result = 31 * result + getPriority().hashCode();
+        result = 31 * result + getServility().hashCode();
+        return result;
+    }
 }

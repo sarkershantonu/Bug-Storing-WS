@@ -68,7 +68,16 @@ see resources/data folder
  
  etc
  
- Update  : jmeter tests are in a folder
+
+# Version 
+ 1.0 will be no auth 
+ 
+ 2.0 will be basic auth
+ 
+ 2.0 with basic auth & unit tests
+
+ # Update  : jmeter tests are in a folder
  
  # todo
  - Integration with OAuth 2.0 (google host)
+

@@ -60,7 +60,7 @@ public class BugServiceBean implements BugService{
     @CacheEvict(value = "bugs", key = "#id")
     public void delete(Long id) {
 
-        bugs.deleteById(id);
+        bugs.delete(id);
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
