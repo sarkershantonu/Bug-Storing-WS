@@ -35,7 +35,7 @@ public abstract class ControllerTestBase extends SpringTestBase {
        ObjectMapper mapper = new ObjectMapper();
        return mapper.writeValueAsString(object);
    }
-    //utils for JSON parsing 
+    //utils for JSON parsing
   protected <T> T parsefrom(String jsonData, Class<T> klass) throws IOException {
        ObjectMapper mapper = new ObjectMapper();
        return mapper.readValue(jsonData,klass);
