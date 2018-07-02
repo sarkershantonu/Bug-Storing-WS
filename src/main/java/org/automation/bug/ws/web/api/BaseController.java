@@ -17,14 +17,14 @@ import java.util.Map;
 public class BaseController {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @ExceptionHandler
+    @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> manageException(Exception e, HttpServletRequest request){
         logger.error("Handling exception.... \nException",e);
         ExceptionsAttributes attributes = new DefaultExceptionAttributes();
         Map<String, Object> response = attributes.getExceptionAttributes(e, request,HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    @ExceptionHandler
+    @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String,Object>> managetNullResults(Exception e, HttpServletRequest request){
         logger.error("Handling Null response.... \nException",e);
         Map<String,Object> response = new DefaultExceptionAttributes().getExceptionAttributes(e, request,HttpStatus.NOT_FOUND);
