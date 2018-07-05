@@ -78,19 +78,5 @@ public class BugControllerTests extends ControllerTestBase {
 
     }
 
-    private Bug getADummyBug(){
-        Bug aBug = new Bug();
-        aBug.setId(null);
-        aBug.setTitle("Title");
-        aBug.setSummary("summary");
-        aBug.setDescription("Description");
-        aBug.setAttachmentPath("AttachmentPath");
-        aBug.setExceptions("exceptions");
-        aBug.setComments("comments");
-        aBug.setFoundDateTime("foundDateTime");
-        aBug.setTags("TAG1,TAG2");
-        aBug.setPriority("5");
-        aBug.setServility("CRITICAL");
-        return aBug;
-    }
+
 }
