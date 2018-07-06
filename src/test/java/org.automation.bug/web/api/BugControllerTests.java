@@ -12,9 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
 /**
@@ -79,7 +81,7 @@ public class BugControllerTests extends ControllerTestBase {
     }
 
     @Test
-    public void testUpdate() throws JsonProcessingException {
+    public void testUpdate() throws Exception {
         String url = "/table/bugs/{id}";
         Bug aBug = getADummyBug();
         service.create(aBug);//newly created bug, so id will be 1
@@ -88,7 +90,31 @@ public class BugControllerTests extends ControllerTestBase {
         aBugToUpdate.setId(new Long(1));
         aBugToUpdate.setTitle("Updated bug");
         String input = super.toJson(aBugToUpdate);
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post()
+        MvcResult result = mockMvc.perform(
+                MockMvcRequestBuilders.put(url,aBugToUpdate.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(input)).andReturn();
+        Assert.assertEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
+        Bug resultBug = super.parsefrom(result.getResponse().getContentAsString(),Bug.class);
+        Assert.assertEquals("Not matched data",aBugToUpdate,resultBug);
+        Assert.assertTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
     }
 
+    @Test(expected = JpaObjectRetrievalFailureException.class)//spring layer exception , not DAL layer
+    public void testDelete() throws Exception {
+        String url = "/table/bugs/{id}";
+        Bug aBug = getADummyBug();
+        service.create(aBug);
+        Bug bugToDelete = getADummyBug();
+        bugToDelete.setId(new Long(1));//newly created bug, so id will be 1
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,bugToDelete.getId()).contentType(MediaType.APPLICATION_JSON)).andReturn();
+
+        Assert.assertEquals("Statis invalid",Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
+        Assert.assertTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
+
+        Bug aBugFromDB = service.findOne(bugToDelete.getId());
+        Assert.assertNull("NOT NULL",aBugFromDB);
+    }
 }
