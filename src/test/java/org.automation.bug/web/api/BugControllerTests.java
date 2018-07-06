@@ -79,7 +79,7 @@ public class BugControllerTests extends ControllerTestBase {
     }
 
     @Test
-    public void testUpdate() throws JsonProcessingException {
+    public void testUpdate() throws Exception {
         String url = "/table/bugs/{id}";
         Bug aBug = getADummyBug();
         service.create(aBug);//newly created bug, so id will be 1
@@ -88,7 +88,14 @@ public class BugControllerTests extends ControllerTestBase {
         aBugToUpdate.setId(new Long(1));
         aBugToUpdate.setTitle("Updated bug");
         String input = super.toJson(aBugToUpdate);
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post()
+        MvcResult result = mockMvc.perform(
+                MockMvcRequestBuilders.put(url,aBugToUpdate.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(input)).andReturn();
+        Assert.assertEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
+        Bug resultBug = super.parsefrom(result.getResponse().getContentAsString(),Bug.class);
+        Assert.assertEquals("Not matched data",aBugToUpdate,resultBug);
     }
 
 }
