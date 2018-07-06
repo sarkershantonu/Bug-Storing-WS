@@ -78,5 +78,9 @@ public class BugControllerTests extends ControllerTestBase {
 
     }
 
+    @Test
+    public void testUpdate(){
+        
+    }
 
 }
