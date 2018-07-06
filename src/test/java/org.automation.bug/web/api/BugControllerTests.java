@@ -79,8 +79,16 @@ public class BugControllerTests extends ControllerTestBase {
     }
 
     @Test
-    public void testUpdate(){
-        
+    public void testUpdate() throws JsonProcessingException {
+        String url = "/table/bugs/{id}";
+        Bug aBug = getADummyBug();
+        service.create(aBug);//newly created bug, so id will be 1
+
+        Bug aBugToUpdate = getADummyBug();
+        aBugToUpdate.setId(new Long(1));
+        aBugToUpdate.setTitle("Updated bug");
+        String input = super.toJson(aBugToUpdate);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post()
     }
 
 }
