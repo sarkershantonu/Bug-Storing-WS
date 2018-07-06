@@ -1,6 +1,6 @@
 package org.automation.bug.service;
 
-import org.automation.bug.core.SpringTestBase;
+import org.automation.bug.core.ServiceTestBase;
 import org.automation.bug.ws.model.Bug;
 import org.automation.bug.ws.service.BugService;
 import org.automation.bug.ws.service.BugServiceBean;
@@ -17,7 +17,8 @@ import java.util.Collection;
  * Created by SSarker on 7/1/2018.
  */
 @Transactional
-public class BugServiceBeanTest extends SpringTestBase{
+public class BugServiceBeanTest extends ServiceTestBase {
+    
     @Autowired
     private BugService service;
 
