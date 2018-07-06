@@ -96,6 +96,7 @@ public class BugControllerTests extends ControllerTestBase {
         Assert.assertEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
         Bug resultBug = super.parsefrom(result.getResponse().getContentAsString(),Bug.class);
         Assert.assertEquals("Not matched data",aBugToUpdate,resultBug);
+        Assert.assertTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
     }
 
 }
