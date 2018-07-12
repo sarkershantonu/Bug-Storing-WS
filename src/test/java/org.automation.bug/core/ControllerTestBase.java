@@ -1,6 +1,7 @@
 package org.automation.bug.core;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.automation.bug.ws.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by SSarker on 7/1/2018.
@@ -40,4 +42,11 @@ public abstract class ControllerTestBase extends SpringTestBase {
        ObjectMapper mapper = new ObjectMapper();
        return mapper.readValue(jsonData,klass);
   }
+    protected <T> List<T> parseArray(String json_ass_string,Class<T> klass) throws IOException {
+        List<T> items;
+        ObjectMapper mapper = new ObjectMapper();
+        items = mapper.readValue(json_ass_string, new TypeReference<List<T>>() {
+        });
+        return items;
+    }
 }
