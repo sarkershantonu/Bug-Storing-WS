@@ -1,6 +1,9 @@
 package org.automation.bug.ws.model;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -165,4 +168,9 @@ public class Bug {
         result = 31 * result + getServility().hashCode();
         return result;
     }
+
+    public String getJson() throws JsonProcessingException {
+        return new ObjectMapper().writeValueAsString(this);
+    }
+
 }
