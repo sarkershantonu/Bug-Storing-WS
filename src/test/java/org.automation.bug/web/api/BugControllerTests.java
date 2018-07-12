@@ -73,11 +73,8 @@ public class BugControllerTests extends ControllerTestBase {
         Assert.assertTrue("NO Content", content.trim().length()>0);
         Bug bugFromResponse = super.parsefrom(content,Bug.class);
         Assert.assertNotNull(bugFromResponse);
-
-
         Bug bugFromDB = service.findOne(bugFromResponse.getId());
         Assert.assertTrue("NOT Present as DB",bugFromDB.equalsByData(bugFromResponse));
-
     }
 
     @Test

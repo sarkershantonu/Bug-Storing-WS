@@ -33,20 +33,5 @@ public abstract class ControllerTestBase extends SpringTestBase {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }*/
    //utils for JSON parsing
-   protected String toJson(Object object) throws JsonProcessingException {
-       ObjectMapper mapper = new ObjectMapper();
-       return mapper.writeValueAsString(object);
-   }
-    //utils for JSON parsing
-  protected <T> T parsefrom(String jsonData, Class<T> klass) throws IOException {
-       ObjectMapper mapper = new ObjectMapper();
-       return mapper.readValue(jsonData,klass);
-  }
-    protected <T> List<T> parseArray(String json_ass_string,Class<T> klass) throws IOException {
-        List<T> items;
-        ObjectMapper mapper = new ObjectMapper();
-        items = mapper.readValue(json_ass_string, new TypeReference<List<T>>() {
-        });
-        return items;
-    }
+
 }
