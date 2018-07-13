@@ -71,7 +71,7 @@ public class BugControllerTests extends ControllerTestBase {
         String content = result.getResponse().getContentAsString();
         Assert.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
         Assert.assertTrue("NO Content", content.trim().length()>0);
-        Bug bugFromResponse = super.parsefrom(content,Bug.class);
+        Bug bugFromResponse = super.parse(content,Bug.class);
         Assert.assertNotNull(bugFromResponse);
         Bug bugFromDB = service.findOne(bugFromResponse.getId());
         Assert.assertTrue("NOT Present as DB",bugFromDB.equalsByData(bugFromResponse));
@@ -93,7 +93,7 @@ public class BugControllerTests extends ControllerTestBase {
                         .accept(MediaType.APPLICATION_JSON)
                         .content(input)).andReturn();
         Assert.assertEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
-        Bug resultBug = super.parsefrom(result.getResponse().getContentAsString(),Bug.class);
+        Bug resultBug = super.parse(result.getResponse().getContentAsString(),Bug.class);
         Assert.assertEquals("Not matched data",aBugToUpdate,resultBug);
         Assert.assertTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
     }
