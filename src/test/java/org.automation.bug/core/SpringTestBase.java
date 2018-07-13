@@ -45,14 +45,14 @@ public abstract class SpringTestBase {
         return mapper.writeValueAsString(object);
     }
     //utils for JSON parsing
-    protected <T> T parsefrom(String jsonData, Class<T> klass) throws IOException {
+    protected <T> T parse(String jsonData, Class<T> klass) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(jsonData,klass);
     }
-    protected <T> List<T> parseArray(String json_ass_string, Class<T> klass) throws IOException {
+    protected <T> List<T> parseArray(String json_as_string, Class<T> klass) throws IOException {
         List<T> items;
         ObjectMapper mapper = new ObjectMapper();
-        items = mapper.readValue(json_ass_string, new TypeReference<List<T>>() {
+        items = mapper.readValue(json_as_string, new TypeReference<List<T>>() {
         });
         return items;
     }
