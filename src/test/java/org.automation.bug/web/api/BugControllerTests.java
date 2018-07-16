@@ -98,20 +98,37 @@ public class BugControllerTests extends ControllerTestBase {
         Assert.assertTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
     }
 
-    @Test(expected = JpaObjectRetrievalFailureException.class)//spring layer exception , not DAL layer
+    @Test
     public void testDelete() throws Exception {
         String url = "/table/bugs/{id}";
         Bug aBug = getADummyBug();
-        service.create(aBug);
+        Bug createdBug = service.create(aBug);
         Bug bugToDelete = getADummyBug();
-        bugToDelete.setId(new Long(1));//newly created bug, so id will be 1
-
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,bugToDelete.getId()).contentType(MediaType.APPLICATION_JSON)).andReturn();
+        bugToDelete.setId(createdBug.getId());
+        MvcResult result = mockMvc.perform(
+                MockMvcRequestBuilders
+                        .delete(url,bugToDelete.getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andReturn();
 
         Assert.assertEquals("Statis invalid",Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
         Assert.assertTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
 
         Bug aBugFromDB = service.findOne(bugToDelete.getId());
         Assert.assertNull("NOT NULL",aBugFromDB);
+    }
+    @Test//(expected = JpaObjectRetrievalFailureException.class)//spring layer exception , not DAL layer
+    public void testDeleteException() throws Exception {
+        String url = "/table/bugs/{id}";
+        //MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(null)).contentType(MediaType.APPLICATION_JSON)).andReturn();
+        //int status_code = result.getResponse().getStatus();
+        //Assert.assertEquals("INVALID CODE",Integer.valueOf(HttpStatus.BAD_REQUEST.toString()).intValue(),status_code );
+
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(-1)).contentType(MediaType.APPLICATION_JSON)).andReturn();
+       int  status_code = result.getResponse().getStatus();
+        Assert.assertEquals("INVALID CODE",Integer.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.toString()).intValue(),status_code );
+        Assert.assertTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
+
     }
 }

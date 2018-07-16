@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -47,5 +48,15 @@ public class BugServiceBeanTest extends ServiceTestBase {
         Bug foundFromDB = service.findOne(aBug.getId());
         Assert.assertNotNull(foundFromDB);
         Assert.assertTrue("Not Same Data", aBug.equals(foundFromDB));
+    }
+
+    @Test
+    public void testDelete(){
+
+    }
+
+    @Test(expected = JpaObjectRetrievalFailureException.class)
+    public void testDeleteWithException(){
+
     }
 }
