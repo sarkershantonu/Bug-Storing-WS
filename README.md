@@ -81,6 +81,7 @@ see resources/data folder
  # todo
  - Integration with OAuth 2.0 (google host)
  - Provider :  google, github, Microsoft
+ - Update spring boot
  
  # Unite testing
 - Unit Testing is being tracked in seperate branch
