@@ -63,8 +63,8 @@ see resources/data folder
  
  
 # Test tools 
-1. postman or other browser plugins
-2. Jmeter
+1. postman or other browser plugins : Functional Testing
+2. Jmeter 
 3. soapui etc
 4. IDE Plugins
 5. Rest Assured 
