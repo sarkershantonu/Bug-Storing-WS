@@ -11,6 +11,8 @@ mvn clean release
 
 mvn spring-boot:run
 
+# Docker Deployment (todo)
+
 # Deploy and run from JAR
 mvn clean package
 
