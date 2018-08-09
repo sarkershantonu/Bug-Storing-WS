@@ -5,11 +5,11 @@ The main idea is to store bug in HSQLDB and use this webservice to practice REST
 
 # Useful Maven commands 
 
-mvn clean test
+- mvn clean test
 
-mvn clean release 
+- mvn clean release 
 
-mvn spring-boot:run
+- mvn spring-boot:run
 
 # Docker Deployment (todo)
 
