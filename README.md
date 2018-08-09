@@ -75,12 +75,14 @@ see resources/data folder
  
 
 # Version 
- 1.0 will be no auth 
+ - 1.0 will be no auth 
  
- 2.0 will be basic auth
+ - 2.0 will be basic auth
  
- 2.0 with basic auth & unit tests
+ - 3.0 with basic auth & unit tests
 
+ - 4.0 with HTTPs support over 3.0 
+ 
  # Update  : jmeter tests are in a folder
  
  # todo
