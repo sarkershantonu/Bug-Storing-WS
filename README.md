@@ -19,7 +19,7 @@ mvn clean package
 => this will generate a Jar file in target folder. The name of the jar file will be "spring-boot-webservice-1.0.SNAPSHOT.jar" 
 so, you need to copy that and put in any folder you like. This is standalone runner (jetty server built in) . Now, from commandline 
 
-java -jar <generated jar>
+java -jar generated_jar_file_name
 
 # URL config 
 Host : localhost
