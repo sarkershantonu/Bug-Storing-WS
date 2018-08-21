@@ -21,3 +21,6 @@ Need to integrate with Alluer
 - https://github.com/sarkershantonu/Automation-Getting-Started/tree/master/RestAssured
 
 Use this test proect to test this site
+
+# Why not here
+- As I am maintaining seperately prpject in generic automation projects. 
