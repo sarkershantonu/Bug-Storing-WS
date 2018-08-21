@@ -15,3 +15,9 @@ shantonu, 123456
 
 # Reporting 
 Need to integrate with Alluer 
+
+
+# ALL Test Cases
+- https://github.com/sarkershantonu/Automation-Getting-Started/tree/master/RestAssured
+
+Use this test proect to test this site
