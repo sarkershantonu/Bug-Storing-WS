@@ -82,14 +82,13 @@ see resources/data folder
  - 3.0 with basic auth & unit tests
 
  - 4.0 with HTTPs support over 3.0 
- 
+ - 5.0 documentation integration : https://github.com/swagger-api/swagger-core/wiki/annotations
  # Update  : jmeter tests are in a folder
  
  # todo
  - Integration with OAuth 2.0 (google host)
  - Provider :  google, github, Microsoft
  - Update spring boot => done 
- - 4.0 documentation integration : https://github.com/swagger-api/swagger-core/wiki/annotations
  
  # Unite testing
 - Unit Testing is being tracked in seperate branch
