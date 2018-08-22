@@ -88,7 +88,8 @@ see resources/data folder
  # todo
  - Integration with OAuth 2.0 (google host)
  - Provider :  google, github, Microsoft
- - Update spring boot
+ - Update spring boot => done 
+ - 4.0 documentation integration : https://github.com/swagger-api/swagger-core/wiki/annotations
  
  # Unite testing
 - Unit Testing is being tracked in seperate branch
