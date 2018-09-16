@@ -13,6 +13,9 @@ The main idea is to store bug in HSQLDB and use this webservice to practice REST
 
 # Docker Deployment (todo)
 
+# JIB Deployment (to do) 
+- https://github.com/GoogleContainerTools/jib
+
 # Deploy and run from JAR
 mvn clean package
 
