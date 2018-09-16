@@ -92,3 +92,9 @@ see resources/data folder
  
  # Unite testing
 - Unit Testing is being tracked in seperate branch
+
+# Installation Scripts 
+- ENV
+- TEST
+- Jenkins
+- Docker
