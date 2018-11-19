@@ -92,6 +92,7 @@ see resources/data folder
  - Integration with OAuth 2.0 (google host)
  - Provider :  google, github, Microsoft
  - Update spring boot => done 
+ - Swagger
  
  # Unite testing
 - Unit Testing is being tracked in seperate branch
