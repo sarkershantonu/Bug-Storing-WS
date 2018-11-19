@@ -93,6 +93,7 @@ see resources/data folder
  - Provider :  google, github, Microsoft
  - Update spring boot => done 
  - Swagger
+ - Docker deploy
  
  # Unite testing
 - Unit Testing is being tracked in seperate branch
