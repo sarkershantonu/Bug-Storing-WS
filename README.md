@@ -103,3 +103,5 @@ see resources/data folder
 - TEST
 - Jenkins
 - Docker
+
+# Docker commands
