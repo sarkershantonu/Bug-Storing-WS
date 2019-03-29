@@ -107,3 +107,6 @@ see resources/data folder
 # Docker commands
 
 # Testing 
+- Perf testing
+- Api Functional Automation 
+- Security Testing 
