@@ -28,7 +28,10 @@ public class App {
 
         return new GuavaCacheManager("bugs");
     }
+    public CacheManager cacheManagerExplicit(){
 
+        return new GuavaCacheManager("bugs");
+    }
     public <K,V> void Compute(K key, BiFunction<?super K, ? super V, ? extends V> remappingFunction){
 
     }
