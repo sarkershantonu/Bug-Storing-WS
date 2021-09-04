@@ -41,7 +41,7 @@ public class BugControllerTests extends ControllerTestBase {
         .accept(MediaType.APPLICATION_JSON)).andReturn();
         String content = result.getResponse().getContentAsString();
         Assertions.assertEquals( Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
-        Assertions.assertTrue("NO Content", content.trim().length()>0);//telling some data is there
+        Assertions.assertTrue(content.trim().length()>0);//telling some data is there
         //todo to have many test data there validae each one
     }
 
