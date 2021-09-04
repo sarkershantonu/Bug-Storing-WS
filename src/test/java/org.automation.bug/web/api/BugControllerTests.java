@@ -52,7 +52,7 @@ public class BugControllerTests extends ControllerTestBase {
         Long id = new Long(Long.MAX_VALUE);
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url,id).
                 accept(MediaType.APPLICATION_JSON)).andReturn();
-        Assertions.assertEquals("Error Missmatched",Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
         String content = result.getResponse().getContentAsString();
         Assertions.assertTrue( content.trim().length()==0);//telling some data is there
     }
