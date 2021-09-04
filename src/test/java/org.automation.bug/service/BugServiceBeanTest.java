@@ -3,9 +3,12 @@ package org.automation.bug.service;
 import org.automation.bug.core.ServiceTestBase;
 import org.automation.bug.ws.model.Bug;
 import org.automation.bug.ws.service.BugService;
+import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.Collection;
@@ -19,7 +22,7 @@ public class BugServiceBeanTest extends ServiceTestBase {
     @Autowired
     private BugService service;
 
-    @Before
+    @BeforeAll
     public void initForTest(){
 
         service.evictCache();
