@@ -40,8 +40,8 @@ public class BugControllerTests extends ControllerTestBase {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url)
         .accept(MediaType.APPLICATION_JSON)).andReturn();
         String content = result.getResponse().getContentAsString();
-        Assertions.AssertionsEquals("Code MissMatchd", Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
-        Assertions.AssertionsTrue("NO Content", content.trim().length()>0);//telling some data is there
+        Assertions.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertTrue("NO Content", content.trim().length()>0);//telling some data is there
         //todo to have many test data there validae each one
     }
 
@@ -52,9 +52,9 @@ public class BugControllerTests extends ControllerTestBase {
         Long id = new Long(Long.MAX_VALUE);
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url,id).
                 accept(MediaType.APPLICATION_JSON)).andReturn();
-        Assertions.AssertionsEquals("Error Missmatched",Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals("Error Missmatched",Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
         String content = result.getResponse().getContentAsString();
-        Assertions.AssertionsTrue("NO Content", content.trim().length()==0);//telling some data is there
+        Assertions.assertTrue("NO Content", content.trim().length()==0);//telling some data is there
     }
 
     @Test
@@ -69,12 +69,12 @@ public class BugControllerTests extends ControllerTestBase {
                 .content(inputJson))
                 .andReturn();
         String content = result.getResponse().getContentAsString();
-        Assertions.AssertionsEquals("Code MissMatchd", Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
-        Assertions.AssertionsTrue("NO Content", content.trim().length()>0);
+        Assertions.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertTrue("NO Content", content.trim().length()>0);
         Bug bugFromResponse = super.parse(content,Bug.class);
         Assertions.AssertionsNotNull(bugFromResponse);
         Bug bugFromDB = service.findOne(bugFromResponse.getId());
-        Assertions.AssertionsTrue("NOT Present as DB",bugFromDB.equalsByData(bugFromResponse));
+        Assertions.assertTrue("NOT Present as DB",bugFromDB.equalsByData(bugFromResponse));
     }
 
     @Test
@@ -92,10 +92,10 @@ public class BugControllerTests extends ControllerTestBase {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
                         .content(input)).andReturn();
-        Assertions.AssertionsEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
         Bug resultBug = super.parse(result.getResponse().getContentAsString(),Bug.class);
-        Assertions.AssertionsEquals("Not matched data",aBugToUpdate,resultBug);
-        Assertions.AssertionsTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
+        Assertions.assertEquals("Not matched data",aBugToUpdate,resultBug);
+        Assertions.assertTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
     }
 
     @Test
@@ -111,8 +111,8 @@ public class BugControllerTests extends ControllerTestBase {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
 
-        Assertions.AssertionsEquals("Statis invalid",Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
-        Assertions.AssertionsTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
+        Assertions.assertEquals("Statis invalid",Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
 
         Bug aBugFromDB = service.findOne(bugToDelete.getId());
         Assertions.AssertionsNull("NOT NULL",aBugFromDB);
@@ -122,13 +122,13 @@ public class BugControllerTests extends ControllerTestBase {
         String url = "/table/bugs/{id}";
         //MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(null)).contentType(MediaType.APPLICATION_JSON)).andReturn();
         //int status_code = result.getResponse().getStatus();
-        //Assertions.AssertionsEquals("INVALID CODE",Integer.valueOf(HttpStatus.BAD_REQUEST.toString()).intValue(),status_code );
+        //Assertions.assertEquals("INVALID CODE",Integer.valueOf(HttpStatus.BAD_REQUEST.toString()).intValue(),status_code );
 
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(-1)).contentType(MediaType.APPLICATION_JSON)).andReturn();
        int  status_code = result.getResponse().getStatus();
-        Assertions.AssertionsEquals("INVALID CODE",Integer.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.toString()).intValue(),status_code );
-        Assertions.AssertionsTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.toString()).intValue(),status_code );
+        Assertions.assertTrue(result.getResponse().getContentAsString().trim().length()==0);
 
     }
 }
