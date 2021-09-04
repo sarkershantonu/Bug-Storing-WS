@@ -70,7 +70,7 @@ public class BugControllerTests extends ControllerTestBase {
                 .andReturn();
         String content = result.getResponse().getContentAsString();
         Assertions.assertEquals( Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
-        Assertions.assertTrue("NO Content", content.trim().length()>0);
+        Assertions.assertTrue( content.trim().length()>0);
         Bug bugFromResponse = super.parse(content,Bug.class);
         Assertions.assertNotNull(bugFromResponse);
         Bug bugFromDB = service.findOne(bugFromResponse.getId());
