@@ -92,7 +92,7 @@ public class BugControllerTests extends ControllerTestBase {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
                         .content(input)).andReturn();
-        Assertions.assertEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
         Bug resultBug = super.parse(result.getResponse().getContentAsString(),Bug.class);
         Assertions.assertEquals("Not matched data",aBugToUpdate,resultBug);
         Assertions.assertTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
