@@ -51,7 +51,7 @@ public class BugServiceBeanTest extends ServiceTestBase {
     }
 
     @Test
-    public void testDelete(){
+    public void testDeleteByID(){
 
     }
 
