@@ -40,7 +40,7 @@ public class BugControllerTests extends ControllerTestBase {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url)
         .accept(MediaType.APPLICATION_JSON)).andReturn();
         String content = result.getResponse().getContentAsString();
-        Assertions.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals( Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
         Assertions.assertTrue("NO Content", content.trim().length()>0);//telling some data is there
         //todo to have many test data there validae each one
     }
