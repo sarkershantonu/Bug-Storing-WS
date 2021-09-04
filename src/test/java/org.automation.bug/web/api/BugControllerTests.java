@@ -112,7 +112,7 @@ public class BugControllerTests extends ControllerTestBase {
                 .andReturn();
 
         Assertions.assertEquals(Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
-        Assertions.assertTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
+        Assertions.assertTrue(result.getResponse().getContentAsString().trim().length()==0);
 
         Bug aBugFromDB = service.findOne(bugToDelete.getId());
         Assertions.assertNull(aBugFromDB);
