@@ -55,6 +55,10 @@ public class BugServiceBeanTest extends ServiceTestBase {
 
     }
 
+    @Test
+    public void testDelete(){
+
+    }
     @Test(expected = JpaObjectRetrievalFailureException.class)
     public void testDeleteWithException(){
 
