@@ -115,7 +115,7 @@ public class BugControllerTests extends ControllerTestBase {
         Assertions.assertTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
 
         Bug aBugFromDB = service.findOne(bugToDelete.getId());
-        Assertions.AssertionsNull("NOT NULL",aBugFromDB);
+        Assertions.assertNull(aBugFromDB);
     }
     @Test//(expected = JpaObjectRetrievalFailureException.class)//spring layer exception , not DAL layer
     public void testDeleteException() throws Exception {
