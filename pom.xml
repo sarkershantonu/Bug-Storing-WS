@@ -63,7 +63,7 @@
                     <artifactId>junit</artifactId>
                 </exclusion>
             </exclusions>
-          <scope>test</scope>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -72,12 +72,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-            <configuration>
-                  <includes>
-                      ${testSuit}
-                  </includes>
-            </configuration>
-        </plugin>
+                <configuration>
+                    <includes>
+                        ${testSuit}
+                    </includes>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
