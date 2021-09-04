@@ -54,7 +54,7 @@ public class BugControllerTests extends ControllerTestBase {
                 accept(MediaType.APPLICATION_JSON)).andReturn();
         Assertions.assertEquals("Error Missmatched",Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
         String content = result.getResponse().getContentAsString();
-        Assertions.assertTrue("NO Content", content.trim().length()==0);//telling some data is there
+        Assertions.assertTrue( content.trim().length()==0);//telling some data is there
     }
 
     @Test
