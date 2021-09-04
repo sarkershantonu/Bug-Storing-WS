@@ -17,7 +17,7 @@ import java.util.Collection;
  * Created by SSarker on 7/1/2018.
  */
 @Transactional
-public class BugServiceBeanTest extends ServiceTestBase {
+public class BugServiceTests extends ServiceTestBase {
 
     @Autowired
     private BugService service;
