@@ -5,20 +5,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.automation.bug.ws.App;
 import org.automation.bug.ws.model.Bug;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import java.io.IOException;
 import java.util.List;
 
 /**
  * Created by SSarker on 7/1/2018.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = App.class)
 //@SpringBootContextLoader(classes = App.class)
 public abstract class SpringTestBase {
