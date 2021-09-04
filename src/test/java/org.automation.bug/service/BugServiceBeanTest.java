@@ -3,10 +3,6 @@ package org.automation.bug.service;
 import org.automation.bug.core.ServiceTestBase;
 import org.automation.bug.ws.model.Bug;
 import org.automation.bug.ws.service.BugService;
-import org.automation.bug.ws.service.BugServiceBean;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 
