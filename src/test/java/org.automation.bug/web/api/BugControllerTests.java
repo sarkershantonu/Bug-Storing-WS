@@ -72,7 +72,7 @@ public class BugControllerTests extends ControllerTestBase {
         Assertions.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
         Assertions.assertTrue("NO Content", content.trim().length()>0);
         Bug bugFromResponse = super.parse(content,Bug.class);
-        Assertions.AssertionsNotNull(bugFromResponse);
+        Assertions.assertNotNull(bugFromResponse);
         Bug bugFromDB = service.findOne(bugFromResponse.getId());
         Assertions.assertTrue("NOT Present as DB",bugFromDB.equalsByData(bugFromResponse));
     }
