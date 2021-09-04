@@ -69,7 +69,7 @@ public class BugControllerTests extends ControllerTestBase {
                 .content(inputJson))
                 .andReturn();
         String content = result.getResponse().getContentAsString();
-        Assertions.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals( Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
         Assertions.assertTrue("NO Content", content.trim().length()>0);
         Bug bugFromResponse = super.parse(content,Bug.class);
         Assertions.assertNotNull(bugFromResponse);
