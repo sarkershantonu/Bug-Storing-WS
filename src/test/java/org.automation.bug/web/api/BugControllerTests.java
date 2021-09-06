@@ -5,9 +5,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.automation.bug.core.ControllerTestBase;
 import org.automation.bug.ws.model.Bug;
 import org.automation.bug.ws.service.BugService;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.http.HttpStatus;
@@ -28,7 +28,7 @@ public class BugControllerTests extends ControllerTestBase {
     @Autowired
     private BugService service;
 
-    @Before
+    @BeforeEach
     public void initForTest(){
         super.init();
         service.evictCache();
@@ -40,8 +40,8 @@ public class BugControllerTests extends ControllerTestBase {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url)
         .accept(MediaType.APPLICATION_JSON)).andReturn();
         String content = result.getResponse().getContentAsString();
-        Assert.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
-        Assert.assertTrue("NO Content", content.trim().length()>0);//telling some data is there
+        Assertions.assertEquals( Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertTrue(content.trim().length()>0);//telling some data is there
         //todo to have many test data there validae each one
     }
 
@@ -52,9 +52,9 @@ public class BugControllerTests extends ControllerTestBase {
         Long id = new Long(Long.MAX_VALUE);
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url,id).
                 accept(MediaType.APPLICATION_JSON)).andReturn();
-        Assert.assertEquals("Error Missmatched",Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
         String content = result.getResponse().getContentAsString();
-        Assert.assertTrue("NO Content", content.trim().length()==0);//telling some data is there
+        Assertions.assertTrue( content.trim().length()==0);//telling some data is there
     }
 
     @Test
@@ -69,12 +69,12 @@ public class BugControllerTests extends ControllerTestBase {
                 .content(inputJson))
                 .andReturn();
         String content = result.getResponse().getContentAsString();
-        Assert.assertEquals("Code MissMatchd", Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
-        Assert.assertTrue("NO Content", content.trim().length()>0);
-        Bug bugFromResponse = super.parsefrom(content,Bug.class);
-        Assert.assertNotNull(bugFromResponse);
+        Assertions.assertEquals( Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertTrue( content.trim().length()>0);
+        Bug bugFromResponse = super.parse(content,Bug.class);
+        Assertions.assertNotNull(bugFromResponse);
         Bug bugFromDB = service.findOne(bugFromResponse.getId());
-        Assert.assertTrue("NOT Present as DB",bugFromDB.equalsByData(bugFromResponse));
+        Assertions.assertTrue(bugFromDB.equalsByData(bugFromResponse));
     }
 
     @Test
@@ -92,26 +92,43 @@ public class BugControllerTests extends ControllerTestBase {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
                         .content(input)).andReturn();
-        Assert.assertEquals("invalid status code",Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
-        Bug resultBug = super.parsefrom(result.getResponse().getContentAsString(),Bug.class);
-        Assert.assertEquals("Not matched data",aBugToUpdate,resultBug);
-        Assert.assertTrue("Not matched data",aBugToUpdate.equalsByData(resultBug));
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
+        Bug resultBug = super.parse(result.getResponse().getContentAsString(),Bug.class);
+        Assertions.assertEquals(aBugToUpdate,resultBug);
+        Assertions.assertTrue(aBugToUpdate.equalsByData(resultBug));
     }
 
-    @Test(expected = JpaObjectRetrievalFailureException.class)//spring layer exception , not DAL layer
+    @Test
     public void testDelete() throws Exception {
         String url = "/table/bugs/{id}";
         Bug aBug = getADummyBug();
-        service.create(aBug);
+        Bug createdBug = service.create(aBug);
         Bug bugToDelete = getADummyBug();
-        bugToDelete.setId(new Long(1));//newly created bug, so id will be 1
+        bugToDelete.setId(createdBug.getId());
+        MvcResult result = mockMvc.perform(
+                MockMvcRequestBuilders
+                        .delete(url,bugToDelete.getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andReturn();
 
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,bugToDelete.getId()).contentType(MediaType.APPLICATION_JSON)).andReturn();
-
-        Assert.assertEquals("Statis invalid",Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
-        Assert.assertTrue("Content Present!!!",result.getResponse().getContentAsString().trim().length()==0);
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertTrue(result.getResponse().getContentAsString().trim().length()==0);
 
         Bug aBugFromDB = service.findOne(bugToDelete.getId());
-        Assert.assertNull("NOT NULL",aBugFromDB);
+        Assertions.assertNull(aBugFromDB);
+    }
+    @Test//(expected = JpaObjectRetrievalFailureException.class)//spring layer exception , not DAL layer
+    public void testDeleteException() throws Exception {
+        String url = "/table/bugs/{id}";
+        //MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(null)).contentType(MediaType.APPLICATION_JSON)).andReturn();
+        //int status_code = result.getResponse().getStatus();
+        //Assertions.assertEquals("INVALID CODE",Integer.valueOf(HttpStatus.BAD_REQUEST.toString()).intValue(),status_code );
+
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(-1)).contentType(MediaType.APPLICATION_JSON)).andReturn();
+       int  status_code = result.getResponse().getStatus();
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.toString()).intValue(),status_code );
+        Assertions.assertTrue(result.getResponse().getContentAsString().trim().length()==0);
+
     }
 }

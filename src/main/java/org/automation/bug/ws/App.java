@@ -1,5 +1,6 @@
 package org.automation.bug.ws;
 
+import com.google.common.cache.CacheBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.CacheManager;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.concurrent.TimeUnit;
 import java.util.function.BiFunction;
 
 /**
@@ -28,7 +30,13 @@ public class App {
 //GuavaCacheManager removed in spring boot 2
         return new GuavaCacheManager("bugs");
     }
+    public CacheManager cacheManagerExplicit(){
 
+        GuavaCacheManager cache  = new GuavaCacheManager("bugs");
+        CacheBuilder<Object, Object> builder = CacheBuilder.newBuilder().maximumSize(500).expireAfterWrite(30, TimeUnit.SECONDS);
+        cache.setCacheBuilder(builder);
+        return cache;
+    }
     public <K,V> void Compute(K key, BiFunction<?super K, ? super V, ? extends V> remappingFunction){
 
     }
