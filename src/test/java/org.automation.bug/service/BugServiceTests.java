@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
-import org.junit.jupiter.api.Assertionsions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import javax.persistence.EntityNotFoundException;
@@ -32,7 +31,7 @@ public class BugServiceTests extends ServiceTestBase {
     @Test// need old data
     public void TestFindAll(){
         Collection<Bug> allBugs = service.findAll();
-        Assertions.AssertionsNotNull(allBugs);
+        Assertions.assertNotNull(allBugs);
     }
 
     @Test(expected = EntityNotFoundException.class)
