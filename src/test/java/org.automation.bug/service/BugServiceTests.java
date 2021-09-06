@@ -37,7 +37,10 @@ public class BugServiceTests extends ServiceTestBase {
     @Test(expected = EntityNotFoundException.class)
     public void testFindNull(){
         Bug aBug = service.findOne(Long.MAX_VALUE);
+
         Assertions.assertNotNull(aBug);
+
+
 
     }
     @Test
@@ -58,8 +61,12 @@ public class BugServiceTests extends ServiceTestBase {
     public void testDelete(){
 
     }
-    @Test(expected = JpaObjectRetrievalFailureException.class)
+    @Test
+    //todo
     public void testDeleteWithException(){
 
+        Assertions.assertThrows(JpaObjectRetrievalFailureException.class ,()->{
+
+        });
     }
 }
