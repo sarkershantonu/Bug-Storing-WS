@@ -46,7 +46,7 @@ public class BugServiceTests extends ServiceTestBase {
         service.create(aBug);
         Bug foundFromDB = service.findOne(aBug.getId());
         Assertions.assertNotNull(foundFromDB);
-        Assertions.AssertionsTrue("Not Same Data", aBug.equals(foundFromDB));
+        Assertions.assertTrue(aBug.equals(foundFromDB));
     }
 
     @Test
