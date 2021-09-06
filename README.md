@@ -3,10 +3,18 @@ This is a small webservice for storing bug in a table.
 The main idea is to store bug in HSQLDB and use this webservice to practice REST webservice testing using tools/framework.  
 
 
-# run from IDE or with code
-mvn clean release 
+# Useful Maven commands 
 
-mvn spring-boot:run
+- mvn clean test
+
+- mvn clean release 
+
+- mvn spring-boot:run
+
+# Docker Deployment (todo)
+
+# JIB Deployment (to do) 
+- https://github.com/GoogleContainerTools/jib
 
 # Deploy and run from JAR
 mvn clean package
@@ -14,7 +22,7 @@ mvn clean package
 => this will generate a Jar file in target folder. The name of the jar file will be "spring-boot-webservice-1.0.SNAPSHOT.jar" 
 so, you need to copy that and put in any folder you like. This is standalone runner (jetty server built in) . Now, from commandline 
 
-java -jar <generated jar>
+java -jar generated_jar_file_name
 
 # URL config 
 Host : localhost
@@ -60,8 +68,8 @@ see resources/data folder
  
  
 # Test tools 
-1. postman or other browser plugins
-2. Jmeter
+1. postman or other browser plugins : Functional Testing
+2. Jmeter  : performance Testing
 3. soapui etc
 4. IDE Plugins
 5. Rest Assured 
@@ -70,14 +78,35 @@ see resources/data folder
  
 
 # Version 
- 1.0 will be no auth 
+ - 1.0 will be no auth 
  
- 2.0 will be basic auth
+ - 2.0 will be basic auth
  
- 2.0 with basic auth & unit tests
+ - 3.0 with basic auth & unit tests
 
+ - 4.0 with HTTPs support over 3.0 
+ - 5.0 documentation integration : https://github.com/swagger-api/swagger-core/wiki/annotations
  # Update  : jmeter tests are in a folder
  
  # todo
  - Integration with OAuth 2.0 (google host)
+ - Provider :  google, github, Microsoft
+ - Update spring boot => done 
+ - Swagger
+ - Docker deploy
+ 
+ # Unite testing
+- Unit Testing is being tracked in seperate branch
 
+# Installation Scripts 
+- ENV
+- TEST
+- Jenkins
+- Docker
+
+# Docker commands
+
+# Testing 
+- Perf testing
+- Api Functional Automation 
+- Security Testing 

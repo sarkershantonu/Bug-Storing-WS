@@ -27,7 +27,7 @@ public class App {
 
     @Bean
     public CacheManager cacheManager(){
-
+//GuavaCacheManager removed in spring boot 2
         return new GuavaCacheManager("bugs");
     }
     public CacheManager cacheManagerExplicit(){
