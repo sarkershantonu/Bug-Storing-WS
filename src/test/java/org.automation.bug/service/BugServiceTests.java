@@ -34,14 +34,12 @@ public class BugServiceTests extends ServiceTestBase {
         Assertions.assertNotNull(allBugs);
     }
 
-    @Test(expected = EntityNotFoundException.class)
+    @Test()
     public void testFindNull(){
+        Assertions.assertThrows(EntityNotFoundException.class ,()->{
         Bug aBug = service.findOne(Long.MAX_VALUE);
-
         Assertions.assertNotNull(aBug);
-
-
-
+        });
     }
     @Test
     public void testCreate(){
