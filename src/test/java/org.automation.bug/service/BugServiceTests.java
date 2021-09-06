@@ -3,10 +3,11 @@ package org.automation.bug.service;
 import org.automation.bug.core.ServiceTestBase;
 import org.automation.bug.ws.model.Bug;
 import org.automation.bug.ws.service.BugService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assertionsions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import javax.persistence.EntityNotFoundException;
@@ -31,13 +32,13 @@ public class BugServiceTests extends ServiceTestBase {
     @Test// need old data
     public void TestFindAll(){
         Collection<Bug> allBugs = service.findAll();
-        Assert.assertNotNull(allBugs);
+        Assertions.AssertionsNotNull(allBugs);
     }
 
     @Test(expected = EntityNotFoundException.class)
     public void testFindNull(){
         Bug aBug = service.findOne(Long.MAX_VALUE);
-        Assert.assertNull("failure - expected null", aBug);
+        Assertions.AssertionsNull("failure - expected null", aBug);
 
     }
     @Test
@@ -45,8 +46,8 @@ public class BugServiceTests extends ServiceTestBase {
         Bug aBug = getADummyBug();
         service.create(aBug);
         Bug foundFromDB = service.findOne(aBug.getId());
-        Assert.assertNotNull(foundFromDB);
-        Assert.assertTrue("Not Same Data", aBug.equals(foundFromDB));
+        Assertions.AssertionsNotNull(foundFromDB);
+        Assertions.AssertionsTrue("Not Same Data", aBug.equals(foundFromDB));
     }
 
     @Test
