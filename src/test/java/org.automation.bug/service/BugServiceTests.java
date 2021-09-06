@@ -37,7 +37,7 @@ public class BugServiceTests extends ServiceTestBase {
     @Test(expected = EntityNotFoundException.class)
     public void testFindNull(){
         Bug aBug = service.findOne(Long.MAX_VALUE);
-        Assertions.AssertionsNull("failure - expected null", aBug);
+        Assertions.assertNotNull(aBug);
 
     }
     @Test
