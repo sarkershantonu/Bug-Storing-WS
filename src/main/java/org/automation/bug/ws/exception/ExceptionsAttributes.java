@@ -1,4 +1,4 @@
-package org.automation.bug.ws.web.api;
+package org.automation.bug.ws.exception;
 
 import org.springframework.http.HttpStatus;
 
