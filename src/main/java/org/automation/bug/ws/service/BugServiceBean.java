@@ -72,7 +72,6 @@ public class BugServiceBean implements BugService{
     @Override
     @CacheEvict(value = "bugs", allEntries = true)
     public void evictCache() {
-
     }
 
 
