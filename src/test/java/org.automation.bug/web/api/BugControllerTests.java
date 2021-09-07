@@ -7,6 +7,7 @@ import org.automation.bug.ws.model.Bug;
 import org.automation.bug.ws.service.BugService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
@@ -23,6 +24,7 @@ import javax.transaction.Transactional;
  * Created by SSarker on 7/1/2018.
  */
 @Transactional
+@Disabled
 public class BugControllerTests extends ControllerTestBase {
 
     @Autowired
