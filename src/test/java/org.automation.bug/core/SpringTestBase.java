@@ -13,7 +13,6 @@ import java.util.List;
  * Created by SSarker on 7/1/2018.
  */
 @SpringBootTest(classes = App.class)
-//@SpringBootContextLoader(classes = App.class)
 public abstract class SpringTestBase {
 
 
