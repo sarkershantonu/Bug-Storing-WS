@@ -18,7 +18,10 @@ public class GuavaCache {
     public CacheManager cacheManagerExplicit(){
 
         GuavaCacheManager cache  = new GuavaCacheManager("bugs");
-        CacheBuilder<Object, Object> builder = CacheBuilder.newBuilder().maximumSize(500).expireAfterWrite(30, TimeUnit.SECONDS);
+        CacheBuilder<Object, Object> builder = CacheBuilder
+                .newBuilder()
+                .maximumSize(500)
+                .expireAfterWrite(30, TimeUnit.SECONDS);
         cache.setCacheBuilder(builder);
         return cache;
     }
