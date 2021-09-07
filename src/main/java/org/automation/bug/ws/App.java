@@ -25,18 +25,7 @@ public class App {
         System.out.println("Bug storing web service is running");
     }
 
-    @Bean
-    public CacheManager cacheManager(){
-//GuavaCacheManager removed in spring boot 2
-        return new GuavaCacheManager("bugs");
-    }
-    public CacheManager cacheManagerExplicit(){
 
-        GuavaCacheManager cache  = new GuavaCacheManager("bugs");
-        CacheBuilder<Object, Object> builder = CacheBuilder.newBuilder().maximumSize(500).expireAfterWrite(30, TimeUnit.SECONDS);
-        cache.setCacheBuilder(builder);
-        return cache;
-    }
     public <K,V> void Compute(K key, BiFunction<?super K, ? super V, ? extends V> remappingFunction){
 
     }
