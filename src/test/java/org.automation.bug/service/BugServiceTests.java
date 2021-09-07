@@ -5,6 +5,7 @@ import org.automation.bug.ws.model.Bug;
 import org.automation.bug.ws.service.BugService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import java.util.Collection;
  * Created by SSarker on 7/1/2018.
  */
 @Transactional
+@Disabled
 public class BugServiceTests extends ServiceTestBase {
 
     @Autowired
