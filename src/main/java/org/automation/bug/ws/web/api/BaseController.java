@@ -15,7 +15,7 @@ import java.util.Map;
  * Created by shantonu on 12/18/16.
  */
 
-public class BaseController {
+public abstract class BaseController {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
   /*  @ExceptionHandler(Exception.class)
