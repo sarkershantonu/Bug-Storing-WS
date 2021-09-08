@@ -36,6 +36,9 @@ public class BugController extends BaseController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Bug> create(@RequestBody Bug b){
 
+        if (null==b.getId()){
+            System.out.printf("NULL ID");
+        }
         return new ResponseEntity<Bug>(bugService.create(b), HttpStatus.CREATED);
 
     }
