@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -23,8 +20,7 @@ public class BugController extends BaseController {
     @Autowired
     private BugService bugService;
 
-    @RequestMapping(value = "/table/bugs",
-            method = RequestMethod.GET,
+    @GetMapping(value = "/table/bugs",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Bug>> findall(){
         return new ResponseEntity<Collection<Bug>>(bugService.findAll(), HttpStatus.OK);
