@@ -17,7 +17,7 @@ import java.util.function.BiFunction;
  * Created by shantonu on 12/18/16.
  */
 @EnableTransactionManagement
-@EnableCaching
+//@EnableCaching
 @SpringBootApplication
 public class App {
     public static void main(String[] args) {
@@ -25,9 +25,9 @@ public class App {
         System.out.println("Bug storing web service is running");
     }
 
-
+/*
     public <K,V> void Compute(K key, BiFunction<?super K, ? super V, ? extends V> remappingFunction){
 
-    }
+    }*/
 
 }
