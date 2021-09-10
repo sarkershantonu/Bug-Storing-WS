@@ -26,8 +26,7 @@ public class BugController extends BaseController {
         return new ResponseEntity<Collection<Bug>>(bugService.findAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/table/bugs",
-            method = RequestMethod.POST,
+    @GetMapping(value = "/table/bugs",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Bug> create(@RequestBody Bug b){
