@@ -13,8 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * Created by shantonu on 1/4/17.
  * read property ref : http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html
  */
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Value("${security.user.name}")
     private String user;
