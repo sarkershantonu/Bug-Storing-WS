@@ -1,9 +1,9 @@
-package org.automation.bug.web.api;
+package org.automation.bug.ws.tests.apis;
 
 
-import org.automation.bug.core.ControllerTestBase;
-import org.automation.bug.ws.model.Bug;
-import org.automation.bug.ws.service.BugService;
+import org.automation.bug.ws.core.ControllerTestBase;
+import org.automation.bug.ws.ws.model.Bug;
+import org.automation.bug.ws.ws.service.BugService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
