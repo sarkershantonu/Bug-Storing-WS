@@ -16,7 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <testSuit>org.automation.bug.RegressionTests.class</testSuit>
+        <testSuit>RegressionTests.class</testSuit>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
         <junit-platform.version>1.7.1</junit-platform.version>
     </properties>
