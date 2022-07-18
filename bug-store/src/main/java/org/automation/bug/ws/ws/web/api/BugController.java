@@ -1,7 +1,7 @@
-package org.automation.bug.ws.web.api;
+package org.automation.bug.ws.ws.web.api;
 
-import org.automation.bug.ws.model.Bug;
-import org.automation.bug.ws.service.BugService;
+import org.automation.bug.ws.ws.model.Bug;
+import org.automation.bug.ws.ws.service.BugService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
