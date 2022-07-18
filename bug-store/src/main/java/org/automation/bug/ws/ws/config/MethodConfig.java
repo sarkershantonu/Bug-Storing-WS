@@ -1,4 +1,4 @@
-package org.automation.bug.ws.config;
+package org.automation.bug.ws.ws.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
