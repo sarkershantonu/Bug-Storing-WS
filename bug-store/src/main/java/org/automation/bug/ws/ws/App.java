@@ -1,17 +1,8 @@
-package org.automation.bug.ws;
+package org.automation.bug.ws.ws;
 
-import com.google.common.cache.CacheBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.guava.GuavaCacheManager;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import java.util.concurrent.TimeUnit;
-import java.util.function.BiFunction;
 
 /**
  * Created by shantonu on 12/18/16.
