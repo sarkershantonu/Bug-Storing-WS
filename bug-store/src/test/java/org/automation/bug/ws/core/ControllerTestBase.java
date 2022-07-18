@@ -1,14 +1,11 @@
-package org.automation.bug.core;
+package org.automation.bug.ws.core;
 
-import org.automation.bug.ws.web.api.BaseController;
+import org.automation.bug.ws.ws.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by SSarker on 7/1/2018.

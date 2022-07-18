@@ -1,6 +1,5 @@
-package org.automation.bug.ws.exception;
+package org.automation.bug.ws.ws.exception;
 
-import org.automation.bug.ws.exception.ExceptionsAttributes;
 import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletRequest;
