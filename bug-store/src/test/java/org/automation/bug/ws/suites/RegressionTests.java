@@ -1,7 +1,7 @@
-package org.automation.bug;
+package org.automation.bug.ws.suites;
 
-import org.automation.bug.service.BugServiceTests;
-import org.automation.bug.web.api.BugControllerTests;
+import org.automation.bug.ws.tests.services.BugServiceTests;
+import org.automation.bug.ws.tests.apis.BugControllerTests;
 import org.junit.jupiter.api.Disabled;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.SelectClasses;
