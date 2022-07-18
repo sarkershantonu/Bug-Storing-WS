@@ -1,6 +1,6 @@
-package org.automation.bug.ws.service;
+package org.automation.bug.ws.ws.service;
 
-import org.automation.bug.ws.model.Bug;
+import org.automation.bug.ws.ws.model.Bug;
 
 import java.util.Collection;
 
