@@ -1,7 +1,7 @@
-package org.automation.bug.ws.service;
+package org.automation.bug.ws.ws.service;
 
-import org.automation.bug.ws.model.Bug;
-import org.automation.bug.ws.repo.BugRepository;
+import org.automation.bug.ws.ws.model.Bug;
+import org.automation.bug.ws.ws.repo.BugRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.NoResultException;
 import java.util.Collection;
 
