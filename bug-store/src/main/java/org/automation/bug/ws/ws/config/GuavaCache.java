@@ -1,16 +1,10 @@
-package org.automation.bug.ws.config;
+package org.automation.bug.ws.ws.config;
 
-import com.google.common.cache.CacheBuilder;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.guava.GuavaCacheManager;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class GuavaCache {
-    @Bean
+/*    @Bean
     public CacheManager cacheManager(){
 //GuavaCacheManager removed in spring boot 2
         return new GuavaCacheManager("bugs");
@@ -24,5 +18,5 @@ public class GuavaCache {
                 .expireAfterWrite(30, TimeUnit.SECONDS);
         cache.setCacheBuilder(builder);
         return cache;
-    }
+    }*/
 }
