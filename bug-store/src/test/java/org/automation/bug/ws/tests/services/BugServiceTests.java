@@ -1,8 +1,8 @@
-package org.automation.bug.service;
+package org.automation.bug.ws.tests.services;
 
-import org.automation.bug.core.ServiceTestBase;
-import org.automation.bug.ws.model.Bug;
-import org.automation.bug.ws.service.BugService;
+import org.automation.bug.ws.core.ServiceTestBase;
+import org.automation.bug.ws.ws.model.Bug;
+import org.automation.bug.ws.ws.service.BugService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;

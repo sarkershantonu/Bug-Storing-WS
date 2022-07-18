@@ -1,4 +1,4 @@
-package org.automation.bug.ws.config;
+package org.automation.bug.ws.ws.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
