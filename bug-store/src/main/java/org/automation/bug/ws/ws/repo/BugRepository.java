@@ -1,6 +1,6 @@
-package org.automation.bug.ws.repo;
+package org.automation.bug.ws.ws.repo;
 
-import org.automation.bug.ws.model.Bug;
+import org.automation.bug.ws.ws.model.Bug;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
