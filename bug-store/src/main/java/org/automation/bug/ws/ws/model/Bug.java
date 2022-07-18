@@ -1,4 +1,4 @@
-package org.automation.bug.ws.model;
+package org.automation.bug.ws.ws.model;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
