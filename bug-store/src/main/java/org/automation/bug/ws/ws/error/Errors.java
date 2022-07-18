@@ -1,5 +1,5 @@
 
-package org.automation.bug.ws.error;
+package org.automation.bug.ws.ws.error;
 
 /**
  * Created by shantonu on 5/29/17.
