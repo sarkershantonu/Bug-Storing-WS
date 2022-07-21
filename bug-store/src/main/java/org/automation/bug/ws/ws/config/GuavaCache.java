@@ -2,7 +2,7 @@ package org.automation.bug.ws.ws.config;
 
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class GuavaCache {
 /*    @Bean
     public CacheManager cacheManager(){
