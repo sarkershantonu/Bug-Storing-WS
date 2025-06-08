@@ -1,8 +1,8 @@
 package org.automation.bug.ws.ws.exception;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
