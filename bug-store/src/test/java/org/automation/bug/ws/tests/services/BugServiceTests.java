@@ -1,16 +1,14 @@
 package org.automation.bug.ws.tests.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.automation.bug.ws.core.ServiceTestBase;
 import org.automation.bug.ws.ws.model.Bug;
 import org.automation.bug.ws.ws.service.BugService;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
-import org.junit.jupiter.api.Test;
-import javax.persistence.EntityNotFoundException;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Collection;
 
 /**
@@ -23,9 +21,8 @@ public class BugServiceTests extends ServiceTestBase {
     @Autowired
     private BugService service;
 
-    @BeforeAll
+    @BeforeEach
     public void initForTest(){
-
         service.evictCache();
     }
 
