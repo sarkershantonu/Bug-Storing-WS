@@ -1,8 +1,8 @@
 package org.automation.bug.ws.ws.exception;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,7 +18,6 @@ public class DefaultExceptionAttributes implements ExceptionsAttributes {
     public static final String MESSAGE="message";
     public static final String PATH="path";
 
-    @Override
     public Map<String, Object> getExceptionAttributes(Exception exception,
                                                       HttpServletRequest httpRequest,
                                                       HttpStatus httpstatus) {
@@ -43,4 +42,5 @@ public class DefaultExceptionAttributes implements ExceptionsAttributes {
     private void addPath(Map<String, Object> exceptionAttributes, HttpServletRequest httpRequest){
         exceptionAttributes.put(PATH, httpRequest.getServletPath());
     }
+
 }
