@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by SSarker on 7/1/2018.
  */
 @Transactional
-@Disabled
+//@Disabled
 public class BugControllerTests extends ControllerTestBase {
 
     @Autowired
@@ -82,7 +82,7 @@ public class BugControllerTests extends ControllerTestBase {
         service.create(aBug);//newly created bug, so id will be 1
 
         Bug aBugToUpdate = getADummyBug();
-        aBugToUpdate.setId(new Long(1));
+        aBugToUpdate.setId(1L);
         aBugToUpdate.setTitle("Updated bug");
         String input = super.toJson(aBugToUpdate);
         MvcResult result = mockMvc.perform(
@@ -123,7 +123,7 @@ public class BugControllerTests extends ControllerTestBase {
         //Assertions.assertEquals("INVALID CODE",Integer.valueOf(HttpStatus.BAD_REQUEST.toString()).intValue(),status_code );
 
 
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(-1)).contentType(MediaType.APPLICATION_JSON)).andReturn();
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,-1L).contentType(MediaType.APPLICATION_JSON)).andReturn();
        int  status_code = result.getResponse().getStatus();
         Assertions.assertEquals(Integer.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.toString()).intValue(),status_code );
         Assertions.assertTrue(result.getResponse().getContentAsString().trim().length()==0);
