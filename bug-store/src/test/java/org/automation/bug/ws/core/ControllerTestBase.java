@@ -11,7 +11,7 @@ import org.springframework.web.context.WebApplicationContext;
  * Created by SSarker on 7/1/2018.
  */
 @WebAppConfiguration
-public abstract class ControllerTestBase extends SpringTestBase {
+public abstract class ControllerTestBase extends BugWsTestBase {
     protected MockMvc mockMvc;
 
     @Autowired
