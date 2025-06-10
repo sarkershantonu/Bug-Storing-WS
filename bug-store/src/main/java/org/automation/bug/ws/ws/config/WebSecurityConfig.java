@@ -10,7 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
  */
 //@Configuration
 //@EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfig
+{/*extends WebSecurityConfigurerAdapter{
     @Value("${security.user.name}")
     private String user;
     @Value("${security.user.password}")
@@ -27,5 +28,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser(user).password(pass).roles("admin");
     }
-
+*/
 }
