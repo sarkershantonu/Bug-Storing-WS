@@ -13,7 +13,7 @@ import java.util.List;
  * Created by SSarker on 7/1/2018.
  */
 @SpringBootTest(classes = App.class)
-public abstract class SpringTestBase {
+public abstract class BugWsTestBase {
 
 
     protected Bug getADummyBug(){
