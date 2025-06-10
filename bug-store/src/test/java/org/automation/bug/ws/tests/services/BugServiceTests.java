@@ -15,7 +15,7 @@ import java.util.Collection;
  * Created by SSarker on 7/1/2018.
  */
 @Transactional
-@Disabled
+//@Disabled
 public class BugServiceTests extends ServiceTestBase {
 
     @Autowired
