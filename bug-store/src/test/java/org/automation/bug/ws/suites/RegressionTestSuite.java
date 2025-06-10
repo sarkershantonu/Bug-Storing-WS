@@ -12,6 +12,6 @@ import org.junit.runner.RunWith;
  */
 @RunWith(JUnitPlatform.class)
 @SelectClasses({BugControllerTests.class, BugServiceTests.class})
-@Disabled
-public class RegressionTests {
+//@Disabled
+public class RegressionTestSuite {
 }
