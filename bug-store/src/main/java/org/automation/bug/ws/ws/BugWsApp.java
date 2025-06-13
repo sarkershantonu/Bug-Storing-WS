@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 //@EnableCaching
 @SpringBootApplication
-public class App {
+public class BugWsApp {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(BugWsApp.class, args);
         System.out.println("Bug storing web service is running");
     }
 
