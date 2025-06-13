@@ -47,7 +47,7 @@ public class BugControllerTests extends ControllerTestBase {
     @Test
     public void testFind() throws Exception {
         String url = "/table/bugs/{id}";
-        Long id = new Long(Long.MAX_VALUE);
+        Long id = Long.MAX_VALUE;
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url,id).
                 accept(MediaType.APPLICATION_JSON)).andReturn();
         Assertions.assertEquals(Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
