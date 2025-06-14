@@ -16,21 +16,7 @@ import java.util.List;
 public abstract class BugWsTestBase {
 
 
-    protected Bug getADummyBug(){
-        Bug aBug = new Bug();
-        aBug.setId(null);
-        aBug.setTitle("Title");
-        aBug.setSummary("summary");
-        aBug.setDescription("Description");
-        aBug.setAttachmentPath("AttachmentPath");
-        aBug.setExceptions("exceptions");
-        aBug.setComments("comments");
-        aBug.setFoundDateTime("foundDateTime");
-        aBug.setTags("TAG1,TAG2");
-        aBug.setPriority("5");
-        aBug.setServility("CRITICAL");
-        return aBug;
-    }
+
     protected String toJson(Object object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(object);
