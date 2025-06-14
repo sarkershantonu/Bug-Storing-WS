@@ -1,5 +1,6 @@
 package org.automation.bug.ws.tests.services;
 
+
 import jakarta.persistence.EntityNotFoundException;
 import org.automation.bug.ws.core.ServiceTestBase;
 import org.automation.bug.ws.ws.model.Bug;
