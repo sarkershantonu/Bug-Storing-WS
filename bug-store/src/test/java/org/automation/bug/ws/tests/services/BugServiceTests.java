@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 
+import static org.automation.bug.ws.core.testdata.BugData.getADummyBug;
+
 /**
  * Created by SSarker on 7/1/2018.
  */
