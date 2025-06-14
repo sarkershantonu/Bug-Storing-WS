@@ -6,7 +6,6 @@ import org.automation.bug.ws.ws.model.Bug;
 import org.automation.bug.ws.ws.service.BugService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +21,6 @@ import static org.automation.bug.ws.core.testdata.BugData.getADummyBug;
  * Created by SSarker on 7/1/2018.
  */
 @Transactional
-//@Disabled
 public class BugControllerTests extends ControllerTestBase {
 
     @Autowired
@@ -40,7 +38,7 @@ public class BugControllerTests extends ControllerTestBase {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url)
         .accept(MediaType.APPLICATION_JSON)).andReturn();
         String content = result.getResponse().getContentAsString();
-        Assertions.assertEquals( Integer.valueOf(HttpStatus.OK.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals( Integer.valueOf(HttpStatus.OK.value()).intValue(),result.getResponse().getStatus());
         Assertions.assertTrue(content.trim().length()>0);//telling some data is there
         //todo to have many test data there validae each one
     }
@@ -52,7 +50,7 @@ public class BugControllerTests extends ControllerTestBase {
         Long id = Long.MAX_VALUE;
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(url,id).
                 accept(MediaType.APPLICATION_JSON)).andReturn();
-        Assertions.assertEquals(Integer.valueOf(HttpStatus.NOT_FOUND.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.NOT_FOUND.value()).intValue(),result.getResponse().getStatus());
         String content = result.getResponse().getContentAsString();
         Assertions.assertTrue( content.trim().length()==0);//telling some data is there
     }
@@ -69,7 +67,7 @@ public class BugControllerTests extends ControllerTestBase {
                 .content(inputJson))
                 .andReturn();
         String content = result.getResponse().getContentAsString();
-        Assertions.assertEquals( Integer.valueOf(HttpStatus.CREATED.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals( Integer.valueOf(HttpStatus.CREATED.value()).intValue(),result.getResponse().getStatus());
         Assertions.assertTrue( content.trim().length()>0);
         Bug bugFromResponse = super.parse(content,Bug.class);
         Assertions.assertNotNull(bugFromResponse);
@@ -92,7 +90,7 @@ public class BugControllerTests extends ControllerTestBase {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
                         .content(input)).andReturn();
-        Assertions.assertEquals(Integer.valueOf(HttpStatus.ACCEPTED.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.ACCEPTED.value()).intValue(),result.getResponse().getStatus());
         Bug resultBug = super.parse(result.getResponse().getContentAsString(),Bug.class);
         Assertions.assertEquals(aBugToUpdate,resultBug);
         Assertions.assertTrue(aBugToUpdate.equalsByData(resultBug));
@@ -111,7 +109,7 @@ public class BugControllerTests extends ControllerTestBase {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
 
-        Assertions.assertEquals(Integer.valueOf(HttpStatus.NO_CONTENT.toString()).intValue(),result.getResponse().getStatus());
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.NO_CONTENT.value()).intValue(),result.getResponse().getStatus());
         Assertions.assertTrue(result.getResponse().getContentAsString().trim().length()==0);
 
         Bug aBugFromDB = service.findOne(bugToDelete.getId());
@@ -122,12 +120,12 @@ public class BugControllerTests extends ControllerTestBase {
         String url = "/table/bugs/{id}";
         //MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,new Long(null)).contentType(MediaType.APPLICATION_JSON)).andReturn();
         //int status_code = result.getResponse().getStatus();
-        //Assertions.assertEquals("INVALID CODE",Integer.valueOf(HttpStatus.BAD_REQUEST.toString()).intValue(),status_code );
+        //Assertions.assertEquals("INVALID CODE",Integer.valueOf(HttpStatus.BAD_REQUEST.value()).intValue(),status_code );
 
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete(url,-1L).contentType(MediaType.APPLICATION_JSON)).andReturn();
        int  status_code = result.getResponse().getStatus();
-        Assertions.assertEquals(Integer.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.toString()).intValue(),status_code );
+        Assertions.assertEquals(Integer.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()).intValue(),status_code );
         Assertions.assertTrue(result.getResponse().getContentAsString().trim().length()==0);
 
     }
