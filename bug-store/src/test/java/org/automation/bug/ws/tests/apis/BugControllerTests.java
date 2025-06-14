@@ -15,6 +15,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.automation.bug.ws.core.testdata.BugData.getADummyBug;
+
 
 /**
  * Created by SSarker on 7/1/2018.
