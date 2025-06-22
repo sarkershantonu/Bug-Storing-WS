@@ -14,9 +14,6 @@ import java.util.List;
  */
 @SpringBootTest(classes = BugWsApp.class)
 public abstract class BugWsTestBase {
-
-
-
     protected String toJson(Object object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(object);
