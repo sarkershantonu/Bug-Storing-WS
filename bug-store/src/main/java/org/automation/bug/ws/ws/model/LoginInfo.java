@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import java.sql.Date;
 
 @Entity
-public class Login {
+public class LoginInfo {
     private String userName;
     private String password;
     private String dateTime;
