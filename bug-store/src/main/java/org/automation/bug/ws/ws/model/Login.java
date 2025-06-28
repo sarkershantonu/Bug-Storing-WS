@@ -31,4 +31,7 @@ public class Login {
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
+    public String getDateTime() {
+        return dateTime;
+    }
 }
