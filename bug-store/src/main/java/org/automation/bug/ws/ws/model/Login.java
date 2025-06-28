@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 public class Login {
     private String userName;
     private String password;
+    private String dateTime;
 
     public String getUserName() {
         return userName;
@@ -19,15 +20,15 @@ public class Login {
         return password;
     }
 
-    public Login() {
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public Login(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 }
