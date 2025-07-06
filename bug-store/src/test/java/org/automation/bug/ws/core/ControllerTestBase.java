@@ -1,5 +1,6 @@
 package org.automation.bug.ws.core;
 
+import jakarta.servlet.Filter;
 import org.automation.bug.ws.ws.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -13,6 +14,7 @@ import org.springframework.web.context.WebApplicationContext;
 @WebAppConfiguration
 public abstract class ControllerTestBase extends BugWsTestBase {
     protected MockMvc mockMvc;
+
 
     @Autowired
     protected WebApplicationContext context;
