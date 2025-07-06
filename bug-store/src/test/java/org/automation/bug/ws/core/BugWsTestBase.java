@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.automation.bug.ws.ws.BugWsApp;
+import org.automation.bug.ws.ws.model.Bug;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
@@ -15,6 +16,10 @@ import java.util.List;
 @SpringBootTest(classes = BugWsApp.class)
 public abstract class BugWsTestBase {
     protected String toJson(Object object) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(object);
+    }
+    protected String toJson(Bug object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(object);
     }
