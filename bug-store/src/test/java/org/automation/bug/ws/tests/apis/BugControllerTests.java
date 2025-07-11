@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.automation.bug.ws.core.testdata.BugData.getADummyBug;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 /**
  * Created by SSarker on 7/1/2018.
@@ -63,12 +63,11 @@ public class BugControllerTests extends ControllerTestBase {
         String inputJson = super.toJson(aBug);
 
         MvcResult result =
-                mockMvc.perform(MockMvcRequestBuilders.post(url)
+                mockMvc.perform(post(url)
                         .with(httpBasic("user","password")))
-        .contentType(MediaType.APPLICATION_JSON)
-        .accept(MediaType.APPLICATION_JSON)
-                .content(inputJson))
-                .andReturn();
+                        //.contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                .content(inputJson);               ;
         String content = result.getResponse().getContentAsString();
         Assertions.assertEquals( Integer.valueOf(HttpStatus.CREATED.value()).intValue(),result.getResponse().getStatus());
         Assertions.assertTrue( content.trim().length()>0);

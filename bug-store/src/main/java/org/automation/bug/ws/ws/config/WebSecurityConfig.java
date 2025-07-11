@@ -28,5 +28,19 @@ public class WebSecurityConfig
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser(user).password(pass).roles("admin");
     }
-*/
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .httpBasic();
+
+        http.csrf().disable();
+    }*/
 }
