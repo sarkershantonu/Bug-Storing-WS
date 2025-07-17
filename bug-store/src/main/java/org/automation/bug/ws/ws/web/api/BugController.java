@@ -25,7 +25,7 @@ public class BugController extends BaseController {
         return new ResponseEntity<Collection<Bug>>(bugService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/table/bugs",
+    @PostMapping(value = "/table/bugs",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Bug> create(@RequestBody Bug b){
@@ -37,8 +37,7 @@ public class BugController extends BaseController {
 
     }
 
-    @RequestMapping(value = "/table/bugs/{id}",
-    method = RequestMethod.GET,
+    @GetMapping(value = "/table/bugs/{id}",
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Bug> find(@PathVariable("id") Long id){
         if(id==null){
@@ -54,8 +53,7 @@ public class BugController extends BaseController {
              }
         }
     }
-    @RequestMapping(value = "/table/bugs/{id}",
-            method = RequestMethod.PUT,
+    @PutMapping(value = "/table/bugs/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Bug> update(@RequestBody Bug b, @PathVariable("id") Long id){
@@ -76,8 +74,7 @@ public class BugController extends BaseController {
         }
     }
 
-    @RequestMapping(value = "/table/bugs/{id}",
-            method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/table/bugs/{id}")
     public ResponseEntity<Bug> del(@PathVariable("id") Long id){
 
         if(id==null ){
