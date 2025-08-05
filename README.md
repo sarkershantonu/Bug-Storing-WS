@@ -2,6 +2,8 @@
 This is a small webservice for storing bug in a table. 
 The main idea is to store bug in HSQLDB and use this webservice to practice REST webservice testing using tools/framework.  
 
+# Current status : 
+- Master does not work for ongoing updates of JARs and spring with unit test cases
 
 # Useful Maven commands 
 
