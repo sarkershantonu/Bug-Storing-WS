@@ -2,11 +2,14 @@ package org.automation.bug.ws.core;
 
 import jakarta.servlet.Filter;
 import org.automation.bug.ws.ws.web.api.BaseController;
+import org.automation.bug.ws.ws.web.api.BugController;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by SSarker on 7/1/2018.
@@ -19,6 +22,9 @@ public abstract class ControllerTestBase extends BugWsTestBase {
     @Autowired
     protected WebApplicationContext context;
 
+    @Autowired
+    protected BugController controller;
+
     protected void init(){
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
@@ -29,5 +35,10 @@ public abstract class ControllerTestBase extends BugWsTestBase {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }*/
    //utils for JSON parsing
+
+    @Test
+    public void testContextLoad(){
+        assertThat(controller).isNotNull();
+    }
 
 }
