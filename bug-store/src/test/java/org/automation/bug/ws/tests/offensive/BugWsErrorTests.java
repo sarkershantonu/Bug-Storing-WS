@@ -1,11 +1,12 @@
-package org.automation.bug.ws.tests.apis;
+package org.automation.bug.ws.tests.offensive;
 
+import org.automation.bug.ws.tests.apis.BugControllerTests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-public class BugWsErrorTests extends BugControllerTests{
+public class BugWsErrorTests extends BugControllerTests {
     private int expectedNotImplemented = HttpStatus.NOT_IMPLEMENTED.value();
     @Test public void testMethodTraceDisabled(){}
     @Test public void testMethodHeadDisabled(){}
