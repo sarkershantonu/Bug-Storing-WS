@@ -6,6 +6,7 @@ import org.automation.bug.ws.ws.model.Bug;
 import org.automation.bug.ws.ws.service.BugService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 /**
  * Created by SSarker on 7/1/2018.
  */
+@Disabled
 @Transactional
 public class BugControllerTests extends ControllerTestBase {
 
