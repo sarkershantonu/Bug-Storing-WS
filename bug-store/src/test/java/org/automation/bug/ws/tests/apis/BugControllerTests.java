@@ -66,9 +66,9 @@ public class BugControllerTests extends ControllerTestBase {
 
         MvcResult result =
                 mockMvc.perform(post(url)
-                        .with(httpBasic("user","password")))
+                        .with(httpBasic(TestConstant.USER,TestConstant.PASS)))
                         //.contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON)
+                        //.accept(MediaType.APPLICATION_JSON)
                 .content(inputJson);               ;
         String content = result.getResponse().getContentAsString();
         Assertions.assertEquals( Integer.valueOf(HttpStatus.CREATED.value()).intValue(),result.getResponse().getStatus());
