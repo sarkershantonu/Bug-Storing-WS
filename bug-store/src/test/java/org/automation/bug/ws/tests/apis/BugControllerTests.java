@@ -2,6 +2,7 @@ package org.automation.bug.ws.tests.apis;
 
 
 import org.automation.bug.ws.core.ControllerTestBase;
+import org.automation.bug.ws.core.testdata.TestConstant;
 import org.automation.bug.ws.ws.model.Bug;
 import org.automation.bug.ws.ws.service.BugService;
 import org.junit.jupiter.api.Assertions;
@@ -75,6 +76,9 @@ public class BugControllerTests extends ControllerTestBase {
         Assertions.assertTrue( content.trim().length()>0);
         Bug bugFromResponse = super.parse(content,Bug.class);
         Assertions.assertNotNull(bugFromResponse);
+
+                
+
         Bug bugFromDB = service.findOne(bugFromResponse.getId());
         Assertions.assertTrue(bugFromDB.equalsByData(bugFromResponse));
     }
