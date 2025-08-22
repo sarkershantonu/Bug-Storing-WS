@@ -155,7 +155,6 @@
                         ${testSuit}
                     </includes>
                     <skipTests>true</skipTests>
-
                 </configuration>
             </plugin>
             <plugin>
